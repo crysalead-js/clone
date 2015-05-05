@@ -1,0 +1,18 @@
+{
+  "name": "copy-clone",
+  "version": "1.0.0",
+  "description": "Recursively clone JavaScript native types.",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/crysalead-js/copy-clone.git"
+  },
+  "devDependencies": {
+    "jasmine": "^2.2.1"
+  },
+  "scripts": {
+    "test": "jasmine"
+  },
+  "dependencies": {
+    "is-native-type": "^1.0.0"
+  }
+}
