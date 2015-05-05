@@ -1,4 +1,3 @@
-var _ = require("is-native-type");
 var useBuffer = typeof Buffer !== "undefined";
 
 /**
@@ -40,18 +39,18 @@ function clone(parent, opts) {
 
     if (Array.isArray(parent)) {
       child = [];
-    } else if (_.isRegExp(parent)) {
+    } else if (toString.call(parent) === "[object RegExp]") {
       child = new RegExp(parent.source, _getRegExpFlags(parent));
       if (parent.lastIndex) {
         child.lastIndex = parent.lastIndex;
       }
-    } else if (_.isDate(parent)) {
+    } else if (toString.call(parent) === "[object Date]") {
       return new Date(parent.getTime());
     } else if (useBuffer && Buffer.isBuffer(parent)) {
       child = new Buffer(parent.length);
       parent.copy(child);
       return child;
-    } else if (_.isTypedArray(parent)) {
+    } else if (!!(parent && parent.constructor && parent.constructor.BYTES_PER_ELEMENT > 0)) {
       return new parent.constructor(parent);
     } else {
       if (typeof options.prototype === "undefined") {

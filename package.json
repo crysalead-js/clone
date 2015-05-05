@@ -1,6 +1,6 @@
 {
   "name": "copy-clone",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Recursively clone JavaScript native types.",
   "repository": {
     "type": "git",
@@ -11,8 +11,5 @@
   },
   "scripts": {
     "test": "jasmine"
-  },
-  "dependencies": {
-    "is-native-type": "^1.0.0"
   }
 }
